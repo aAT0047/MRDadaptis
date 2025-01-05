@@ -108,3 +108,4 @@ Use the following script to test different tools:
 
     python /SVfolder/vsworkflow/callerworkflow.py
 
+<img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure7.png" alt="Figure 7: Prediction Example" width="600">
