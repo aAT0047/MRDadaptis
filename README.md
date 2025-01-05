@@ -51,9 +51,9 @@ To distribute `.vcf` files into simulation folders, follow these steps:
 ### Split Samples into Segments
 Split samples into segments ranging from thousands (kilobases) to millions (megabases) of base pairs using Python 3.6+ with multithreading support:
 
-    python aAT0047/MRD-Adaptissplit_bv32bam.py
+    python aAT0047/MRD-Adaptis/split_bv32.py
 
-![Figure 2: Sample Segmentation Process](https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure2.png)
+<img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure2.png" alt="Figure 2: Sample Segmentation Process" width="600">
 
 ## Extracting Sample Meta-Features
 
@@ -67,7 +67,7 @@ Run the following script for initializing parameter configuration (Python 3.6+):
 
     python aAT0047/MRD-Adaptis/main.py
 
-![Figure 3: Meta-Model Training Process](https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure3.png)
+<img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure3.png" alt="Figure 3: Meta-Model Training Process" width="600">
 
 ## Training a Meta-Model
 
@@ -75,7 +75,7 @@ Training a meta-model involves creating a model that learns from the outputs or 
 
     python aAT0047/MRD-Adaptis/metaleaner.py
 
-![Figure 4: Meta-Model Evaluation](https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure4.png)
+<img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure4.png" alt="Figure 4: Meta-Model Evaluation" width="600">
 
 ## Testing Model with Recommended Parameters
 
@@ -98,12 +98,13 @@ The `prediction_dict` is generated with keys such as:
         "discordant_z": ...
     }
 
-![Figure 5: Testing Workflow](https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure5.png)
+<img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure5.png" alt="Figure 5: Testing Workflow" width="600">
 
-![Figure 6: Prediction Example](https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure6.png)
+<img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure6.png" alt="Figure 6: Prediction Example" width="600">
 
 ## Testing DELLY, LUMPY, Manta, BreakDancer, Pindel, MetaSV, SvABA & MRD-Adaptis
 
 Use the following script to test different tools:
 
     python /SVfolder/vsworkflow/callerworkflow.py
+
