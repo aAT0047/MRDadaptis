@@ -102,7 +102,7 @@ The `prediction_dict` is generated with keys such as:
 
 ![Figure 6: Prediction Example](https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure6.png)
 
-## Testing DELLY, LUMPY, Manta, BreakDancer, Pindel, MetaSV, SvABA, and SVstabilizer
+## Testing DELLY, LUMPY, Manta, BreakDancer, Pindel, MetaSV, SvABA & MRD-Adaptis
 
 Use the following script to test different tools:
 
