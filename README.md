@@ -51,7 +51,7 @@ To distribute `.vcf` files into simulation folders, follow these steps:
 ### Split Samples into Segments
 Split samples into segments ranging from thousands (kilobases) to millions (megabases) of base pairs using Python 3.6+ with multithreading support:
 
-    python split_bv32.py
+    python aAT0047/MRD-Adaptissplit_bv32bam.py
 
 ![Figure 2: Sample Segmentation Process](https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure2.png)
 
