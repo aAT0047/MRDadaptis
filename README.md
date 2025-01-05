@@ -58,6 +58,7 @@ Move your `shinvcf.py` script to the Python 2.7 environment's `bin` directory:**
    ```bash
    python split_bv32.py
    ```
+   <img src="https://github.com/aAT0047/MRD-Adaptis/blob/main/image/figure2.png" alt="Figure 2" width="600">
 ### Extracting Sample Meta-Features
 - Python version 3.6 or higher
    ```bash
@@ -69,15 +70,18 @@ Move your `shinvcf.py` script to the Python 2.7 environment's `bin` directory:**
    
    python aAT0047/MRD-Adaptis/main.py
    ```
+   <img src="https://github.com/aAT0047/MRD-Adaptis/blob/main/image/figure3.png" alt="Figure 3" width="600">
 ###  Training a meta-model, in the context of machine learning, involves creating a model that can learn from the outputs or the performance of other models.then get multi_target_regression_model.pth
  ```bash
    
    python aAT0047/MRD-Adaptis/metaleaner.py
    ```
+   <img src="https://github.com/aAT0047/MRD-Adaptis/blob/main/image/figure4.png" alt="Figure 4" width="600">
 ### Testing model with recommended parameters 
 ```bash
    
-   python model.py \Autosvp\samplecopy\1.bam
+   python model.py 1.bam
+   <img src="https://github.com/aAT0047/MRD-Adaptis/blob/main/image/figure5.png" alt="Figure 5" width="600">
    print
     prediction_dict = {
          "w"
@@ -91,6 +95,7 @@ Move your `shinvcf.py` script to the Python 2.7 environment's `bin` directory:**
         "discordant_z": 
     }
    ```
+   <img src="https://github.com/aAT0047/MRD-Adaptis/blob/main/image/figure6.png" alt="Figure 6" width="600">
 ### Testing DELLY, LUMPY, Manta, BreakDancer, Pindel, MetaSV, SvABA, and SVstabilizer
  ```bash
    
