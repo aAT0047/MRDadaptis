@@ -4,102 +4,106 @@ Detection of variations through circulating tumor DNA (ctDNA) has become a key m
 <img src="https://github.com/aAT0047/MRD-Adaptis/blob/main/image/figure1.png" alt="Figure 1" width="600">
 
 
-## Usage
-### Simulated Data files Generation
+# Usage Guide
 
-Simulate fq data using GSDcreator by following the method described in the paper available on IEEE Xplore.
+This guide explains the process of simulating data, training a meta-model, and testing models with recommended parameters using Python scripts and tools.
 
-**Reference:** 
+## Simulated Data Files Generation
+
+Simulate fq data using **GSDcreator** by following the method described in the paper available on IEEE Xplore.
+
+### Reference
 [Simulation method for fq data](https://ieeexplore.ieee.org/abstract/document/8983192)
 
-**Requirements:**
-- Python version 2.7
-- **Steps to Generate Simulated Data:**
+## Requirements
+- **Python version:** 2.7 (for simulation steps)
+- **Python version:** 3.6 or higher (for further data processing and meta-model tasks)
 
-1. **Generate Simulation Scripts**
-   Use `A_stableCallerPaperSimFlow.py` to generate `sh` scripts for simulating 10,000 samples:
+## Steps to Generate Simulated Data
 
-   ```bash
-   python A_stableCallerPaperSimFlow.py -o sh_files
-   ```
-### Simulated Data Generation with GSDcreator
+### Generate Simulation Scripts
+Use `A_stableCallerPaperSimFlow.py` to generate `.sh` scripts for simulating 10,000 samples:
 
-Generate simulation scripts for 10,000 samples, install GSDcreator, and run the simulations as follows:
-**Requirements:**
-- Python version 2.7
-1. **Generate Simulation Scripts:**
-   To create simulation scripts for 10,000 samples, use the following command:
+    python A_stableCallerPaperSimFlow.py -o sh_files
 
-2. **Install GSDcreator:**
-Install GSDcreator and import the `sh_files`.
+### Install GSDcreator and Run Simulations
+1. Convert scripts to Unix format and make them executable:
 
-   ```bash
     dos2unix 10000run.py
     chmod +x 10000run.py
-   ```
-4. **Prepare the Simulation Script:**
-Convert the script to Unix format and make it executable:
 
-5. **Run the Simulation:**
-Ensure Python version 2.7 then execute the script:
-    ```bash
+2. Execute the simulation script (ensure Python 2.7 is installed):
+
     python 10000run.py
-    ```
-6.**To distribute the converted `.vcf` files into each simulation folder：
-Move your `shinvcf.py` script to the Python 2.7 environment's `bin` directory:**
-   ```bash
-     mv noinsertshinvcf.py /yourpath/py2env/bin/
-     chmod +x /home/cloudam/.conda/envs/py2env/bin/shinvcf.py
-     dos2unix /home/cloudam/.conda/envs/py2env/bin/shinvcf.py
-     shinvcf.py A_stableCallerPaperSimFlowShell.sh base.vcf
-```
-7.To split the samples into segments ranging from thousands (kilobases) to millions (megabases) of base pairs, use the following approach:
-- Python version 3.6 or higher.Splitting Samples with Multithreading Support:
-   ```bash
-   python split_bv32.py
-   ```
-<img src="https://github.com/aAT0047/MRD-Adaptis/blob/main/image/figure2.png" alt="Figure 2" width="600">
-### Extracting Sample Meta-Features
-- Python version 3.6 or higher
-   ```bash
-   python aAT0047/MRD-Adaptis/metafeature.py
-   ```
-   
-### Initializing  opt Parameter Configuration  with Multi-Threading- Python version 3.6 or higher
- ```bash
-   
-   python aAT0047/MRD-Adaptis/main.py
-   ```
-<img src="https://github.com/aAT0047/MRD-Adaptis/blob/main/image/figure3.png" alt="Figure 3" width="600">
-###  Training a meta-model, in the context of machine learning, involves creating a model that can learn from the outputs or the performance of other models.then get multi_target_regression_model.pth
- ```bash
-   
-   python aAT0047/MRD-Adaptis/metaleaner.py
-   ```
-<img src="https://github.com/aAT0047/MRD-Adaptis/blob/main/image/figure4.png" alt="Figure 4" width="600">
-### Testing model with recommended parameters 
-```bash
-   
-   python model.py 1.bam
-   <img src="https://github.com/aAT0047/MRD-Adaptis/blob/main/image/figure5.png" alt="Figure 5" width="600">
-   print
+
+### Distribute `.vcf` Files
+To distribute `.vcf` files into simulation folders, follow these steps:
+1. Move the `shinvcf.py` script to the Python 2.7 environment's `bin` directory:
+
+    mv noinsertshinvcf.py /yourpath/py2env/bin/
+    chmod +x /yourpath/py2env/bin/shinvcf.py
+    dos2unix /yourpath/py2env/bin/shinvcf.py
+
+2. Run the script to process `.vcf` files:
+
+    shinvcf.py A_stableCallerPaperSimFlowShell.sh base.vcf
+
+### Split Samples into Segments
+Split samples into segments ranging from thousands (kilobases) to millions (megabases) of base pairs using Python 3.6+ with multithreading support:
+
+    python split_bv32.py
+
+![Figure 2: Sample Segmentation Process](https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure2.png)
+
+## Extracting Sample Meta-Features
+
+Use Python 3.6+ to extract sample meta-features:
+
+    python aAT0047/MRD-Adaptis/metafeature.py
+
+## Initializing opt Parameter Configuration (Multi-Threading)
+
+Run the following script for initializing parameter configuration (Python 3.6+):
+
+    python aAT0047/MRD-Adaptis/main.py
+
+![Figure 3: Meta-Model Training Process](https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure3.png)
+
+## Training a Meta-Model
+
+Training a meta-model involves creating a model that learns from the outputs or performance of other models. The resulting meta-model is saved as `multi_target_regression_model.pth`.
+
+    python aAT0047/MRD-Adaptis/metaleaner.py
+
+![Figure 4: Meta-Model Evaluation](https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure4.png)
+
+## Testing Model with Recommended Parameters
+
+Run the following command to test the model with recommended parameters:
+
+    python model.py 1.bam
+
+**Example Output:**  
+The `prediction_dict` is generated with keys such as:
+
     prediction_dict = {
-         "w"
-        "msw": ,
-        "tt": ,
-        "back_distance": ,
-        "min_mapping_threshold":],
-        "min_clip":,
-        "read_length":,
-        "min_non_overlap":,
-        "discordant_z": 
+        "w": ...,
+        "msw": ...,
+        "tt": ...,
+        "back_distance": ...,
+        "min_mapping_threshold": ...,
+        "min_clip": ...,
+        "read_length": ...,
+        "min_non_overlap": ...,
+        "discordant_z": ...
     }
-   ```
-<img src="https://github.com/aAT0047/MRD-Adaptis/blob/main/image/figure6.png" alt="Figure 6" width="600">
-### Testing DELLY, LUMPY, Manta, BreakDancer, Pindel, MetaSV, SvABA, and SVstabilizer
- ```bash
-   
-   python /SVfolder/vsworkflow/callerworkflow.py
-   ```
 
+![Figure 5: Testing Workflow](https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure5.png)
 
+![Figure 6: Prediction Example](https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure6.png)
+
+## Testing DELLY, LUMPY, Manta, BreakDancer, Pindel, MetaSV, SvABA, and SVstabilizer
+
+Use the following script to test different tools:
+
+    python /SVfolder/vsworkflow/callerworkflow.py
