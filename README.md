@@ -26,7 +26,7 @@ Simulate fq data using **GSDcreator** by following the method described in the p
 - **Python version:** 2.7 (for simulation steps)
 - **Python version:** 3.6 or higher (for further data processing and meta-model tasks)
 
-## Steps to Generate Simulated Data
+## Generate Simulated Data
 
 ### Generate Simulation Scripts
 Use `A_stableCallerPaperSimFlow.py` to generate `.sh` scripts for simulating 10,000 samples:
@@ -54,21 +54,17 @@ To distribute `.vcf` files into simulation folders, follow these steps:
 2. Run the script to process `.vcf` files:
 
     shinvcf.py A_stableCallerPaperSimFlowShell.sh base.vcf
+## MRD-Adaptis Model
+### step 1 Split Samples into Segments
 
-### Split Samples into Segments
 Split samples into segments ranging from thousands (kilobases) to millions (megabases) of base pairs using Python 3.6+ with multithreading support:
 
     python aAT0047/MRD-Adaptis/split_bv32.py
 
 <img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure2.png" alt="Figure 2: Sample Segmentation Process" width="600">
 
-## Extracting Sample Meta-Features
-
-Use Python 3.6+ to extract sample meta-features:
-
-    python aAT0047/MRD-Adaptis/metafeature.py
-
-## Initializing opt Parameter Configuration (Multi-Threading)
+### step 2 Bayesian optimization framework 
+#### Initializing opt Parameter Configuration (Multi-Threading)
 
 Run the following script for initializing parameter configuration (Python 3.6+):
 
@@ -76,7 +72,13 @@ Run the following script for initializing parameter configuration (Python 3.6+):
 
 <img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure3.png" alt="Figure 3: Meta-Model Training Process" width="600">
 
-## Training a Meta-Model
+#### Extracting Sample Meta-Features
+
+Use Python 3.6+ to extract sample meta-features:
+
+    python aAT0047/MRD-Adaptis/metafeature.py
+    
+### step 3 Training a Meta-Model
 
 Training a meta-model involves creating a model that learns from the outputs or performance of other models. The resulting meta-model is saved as `multi_target_regression_model.pth`.
 
