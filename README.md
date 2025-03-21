@@ -113,7 +113,7 @@ The `prediction_dict` is generated with keys such as:
 
 ## Testing DELLY, LUMPY, Manta, BreakDancer, Pindel, MetaSV, SvABA & MRD-Adaptis
 
-Use the following script to test different tools:
+To evaluate the model's generalization ability, we trained it on 400 simulated data samples and tested it using 176 real-world data samples. Additionally, 5-fold cross-validation was performed on the training set to ensure robustness and prevent overfitting.Use the following script to test different tools:
 
     python /SVfolder/vsworkflow/callerworkflow.py
 
