@@ -116,6 +116,6 @@ The `prediction_dict` is generated with keys such as:
 To evaluate the model's generalization ability, we trained it on 400 simulated data samples and tested it using 176 real-world data samples. Additionally, 5-fold cross-validation was performed on the training set to ensure robustness and prevent overfitting.Use the following script to test different tools:
 
     python /SVfolder/vsworkflow/callerworkflow.py
-
 <img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure7.png" alt="Figure 7: Prediction Example" width="600">
-<img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure7.png" alt="All_Metrics_ismb: Prediction Example" width="600">
+
+<img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/All_Metrics_ismb" alt="All_Metrics_ismb: Prediction Example" width="600">
