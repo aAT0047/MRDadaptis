@@ -118,4 +118,4 @@ To evaluate the model's generalization ability, we trained it on 400 simulated d
     python /SVfolder/vsworkflow/callerworkflow.py
 <img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure7.png" alt="Figure 7: Prediction Example" width="600">
 
-<img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/All_Metrics_ismb" alt="Figure 8: Prediction Example" width="600">
+<img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/All_Metrics_ismb.png"  width="600">
