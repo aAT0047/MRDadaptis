@@ -27,7 +27,7 @@ Simulate fq data using **GSDcreator** by following the method described in the p
 ### Generate Simulation Scripts
 Use `A_stableCallerPaperSimFlow.py` to generate `.sh` scripts for simulating 10,000 samples:
 
-    python A_stableCallerPaperSimFlow.py -o sh_files
+    python A_stableCallerPaperSimFlow.py
 
 ### Install GSDcreator and Run Simulations
 1. Convert scripts to Unix format and make them executable:
@@ -39,17 +39,6 @@ Use `A_stableCallerPaperSimFlow.py` to generate `.sh` scripts for simulating 10,
 
     python 10000run.py
 
-### Distribute `.vcf` Files
-To distribute `.vcf` files into simulation folders, follow these steps:
-1. Move the `shinvcf.py` script to the Python 2.7 environment's `bin` directory:
-
-    mv noinsertshinvcf.py /yourpath/py2env/bin/
-    chmod +x /yourpath/py2env/bin/shinvcf.py
-    dos2unix /yourpath/py2env/bin/shinvcf.py
-
-2. Run the script to process `.vcf` files:
-
-    shinvcf.py A_stableCallerPaperSimFlowShell.sh base.vcf
 ## MRD-Adaptis Model
 ### step 1 Split Samples into Segments
 
