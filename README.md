@@ -49,7 +49,26 @@ Split samples into segments ranging from thousands (kilobases) to millions (mega
     python aAT0047/MRD-Adaptis/blob/main/MRD-Adaptis/splitcsvbam.py
 Extract sample meta-features:
 
-    python aAT0047/MRD-Adaptis/metafeature.py
+    python aAT0047/MRD-Adaptis/metafeature.py -h
+    usage: --name NAME --base-dir BASE_DIR --input-dir INPUT_DIR --output-base-dir OUTPUT_BASE_DIR
+
+        Batch process BAM files into CSV
+        
+        optional arguments:
+          -h, --help
+                Show this help message and exit
+        
+          --name NAME
+                Configuration set name (used as identifier in output files)
+        
+          --base-dir BASE_DIR
+                Base directory for data (root path; reserved for future use)
+        
+          --input-dir INPUT_DIR
+                Directory containing BAM files to be processed
+        
+          --output-base-dir OUTPUT_BASE_DIR
+                Base directory where CSV outputs will be saved
 
 <img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure2.png" alt="Figure 2: Sample Segmentation Process" width="600">
 
@@ -106,7 +125,7 @@ Training a meta-model involves creating a model that learns from the outputs or 
 
 Run the following command to test the model with recommended parameters:
 
-    python model.py 1.bam
+    python aAT0047/MRD-Adaptis/model.py 1.bam
 
 **Example Output:**  
 The `prediction_dict` is generated with keys such as:
