@@ -77,6 +77,38 @@ Use Python 3.6+ to extract sample meta-features:
 ### step 3 Training a Meta-Model
 
 Training a meta-model involves creating a model that learns from the outputs or performance of other models. The resulting meta-model is saved as `multi_target_regression_model.pth`.
+## Meta-features
+
+| Meta-feature                                    | Description                                                                          |
+|-------------------------------------------------|--------------------------------------------------------------------------------------|
+| The average length of reads                     | The mean length of sequencing reads in a given sub-region.                           |
+| The average sequencing depth                    | The average coverage of sequencing reads in a given sub-region, reflecting the overall read density. |
+| The average invert size                         | The mean size of inversions detected within the sub-region.                          |
+| Average Mapping Quality                         | The average quality score of read alignments in the sub-region.                      |
+| The proportion of short breakpoints             | The proportion of structural variations with short breakpoints in the sub-region (< 500). |
+| The proportion of middle breakpoints            | The proportion of structural variations with medium-sized breakpoints in the sub-region (500–2000). |
+| The proportion of large breakpoints             | The proportion of structural variations with large breakpoints in the sub-region (> 2000). |
+| The proportion of breakpoints in repeat regions | The proportion of breakpoints located within repetitive genomic regions in the sub-region. |
+| Average SV length                               | The average length of structural variations detected in the sub-region.              |
+| Insert Size Mean                                | The mean insert size (distance between paired-end reads) within the sub-region.      |
+| Insert Size Standard Deviation                  | The standard deviation of insert sizes, reflecting variability in paired-end distances. |
+| Read Mapping Bias (RMB)                         | The proportion of reads that align asymmetrically across the sub-region, indicating potential biases. |
+| HDMP                                            | High Mean Density Percentage (Number of Small Gaps / Total Number of Gaps).          |
+
+## multi_target :Parameters
+
+| Parameter Name              | Meaning                                                                                                                                         |
+|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `-w`                        | Window size: Defines the range of the detection window. Larger windows cover a broader range but may reduce precision.                          |
+| `-msw`                      | Minimum Per-Sample Weight: The minimum weight required for each sample to call a variant.                                                        |
+| `-tt`                       | Trim Threshold: Filters out overly long or short reads to ensure only qualified reads are processed, improving detection accuracy.              |
+| `-back_distance`            | Backward Distance: The maximum distance the algorithm can check backward.                                                                        |
+| `-min_mapping_threshold`    | Minimum Mapping Quality Threshold: Filters out low-quality mappings.                                                                             |
+| `-min_clip`                 | Minimum Clipping Length: The minimum length of clipped segments to be considered potentially related to structural variants.                     |
+| `-read_length`              | Read Length: The length of each read in genome sequencing. Used for normalizing sequencing data.                                                 |
+| `-min_non_overlap`          | Minimum Non-Overlap: The minimum non-overlapping region between two sequences required to identify structural variants.                         |
+| `-discordant_z`             | Discordant Z-Score: Measures whether paired reads significantly deviate from expected positions or orientation.                                 |
+
 
     python aAT0047/MRD-Adaptis/metaleaner.py
 
@@ -91,21 +123,18 @@ Run the following command to test the model with recommended parameters:
 **Example Output:**  
 The `prediction_dict` is generated with keys such as:
 
-    prediction_dict = {
-        "w": ...,
-        "msw": ...,
-        "tt": ...,
-        "back_distance": ...,
-        "min_mapping_threshold": ...,
-        "min_clip": ...,
-        "read_length": ...,
-        "min_non_overlap": ...,
-        "discordant_z": ...
-    }
+| Parameter                 | Value |
+|---------------------------|-------|
+| `w`                       | …     |
+| `msw`                     | …     |
+| `tt`                      | …     |
+| `back_distance`           | …     |
+| `min_mapping_threshold`   | …     |
+| `min_clip`                | …     |
+| `read_length`             | …     |
+| `min_non_overlap`         | …     |
+| `discordant_z`            | …     |
 
-<img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure5.png" alt="Figure 5: Testing Workflow" width="600">
-
-<img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure6.png" alt="Figure 6: Prediction Example" width="600">
 
 ## Testing DELLY, LUMPY, Manta, BreakDancer, Pindel, MetaSV, SvABA & MRD-Adaptis
 
