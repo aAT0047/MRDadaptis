@@ -40,11 +40,16 @@ Use `A_stableCallerPaperSimFlow.py` to generate `.sh` scripts for simulating 10,
     python 10000run.py
 
 ## MRD-Adaptis Model
-### step 1 Split Samples into Segments
+### step 1 Split Samples into Segments  &  Extracting Sample Meta-Features
+
+
 
 Split samples into segments ranging from thousands (kilobases) to millions (megabases) of base pairs using Python 3.6+ with multithreading support:
 
     python aAT0047/MRD-Adaptis/blob/main/MRD-Adaptis/splitcsvbam.py
+Extract sample meta-features:
+
+    python aAT0047/MRD-Adaptis/metafeature.py
 
 <img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure2.png" alt="Figure 2: Sample Segmentation Process" width="600">
 
@@ -56,16 +61,10 @@ Run the following script for initializing parameter configuration (Python 3.6+):
     python aAT0047/MRD-Adaptis/main.py
 
 <img src="https://github.com/aAT0047/MRD-Adaptis/raw/main/image/figure3.png" alt="Figure 3: Meta-Model Training Process" width="600">
-
-#### Extracting Sample Meta-Features
-
-Use Python 3.6+ to extract sample meta-features:
-
-    python aAT0047/MRD-Adaptis/metafeature.py
-    
+  
 ### step 3 Training a Meta-Model
 
-Training a meta-model involves creating a model that learns from the outputs or performance of other models. The resulting meta-model is saved as `multi_target_regression_model.pth`.
+Training a meta-model involves creating a model that learns from the outputs or performance of Bayesian models. The resulting meta-model is saved as `multi_target_regression_model.pth`.
 ## Meta-features
 
 | Meta-feature                                    | Description                                                                          |
